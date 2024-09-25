@@ -1,0 +1,102 @@
+/* Estilo general del índice principal */
+.main-index {
+    background-color: #ffffff;  
+    text-align: center;
+    padding: 20px;
+}
+
+/* Estilo para el encabezado principal */
+h1 {
+    font-size: 36px; 
+    text-align: center;
+    background-color: #FF0063; 
+    margin: 50px 0 30px 0;
+    color: #EAF6F6; 
+    border-radius: 0 20px 0 20px; 
+    padding: 10px; 
+    font-family: 'Arial', sans-serif; 
+}
+
+.presentacion {
+    margin: 20px 0; 
+}
+
+.presentacion p {
+    font-size: 18px;
+    color: #494949; 
+    line-height: 1.6; 
+}
+
+/* Estilo para la sección de consejos */
+.consejos-container {
+    margin: 20px 0;
+}
+.consejos-container h3 {
+    background-color: #FF0063; 
+    color: white;
+    font-family: Arial, Helvetica, sans-serif; 
+    width: 50%; 
+    margin: 0 auto; 
+    padding: 0px;
+    border-radius: 0 20px 0 20px; 
+    text-align: center;
+    margin-bottom: 10px;
+}
+.consejos-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.consejo-card {
+    background-color: #f2f2f2; 
+    border-radius: 8px; 
+    padding: 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    flex: 0 0 200px; 
+    transition: transform 0.2s; 
+}
+
+.consejo-card:hover {
+    transform: translateY(-5px); 
+}
+.consejo-card h4 {
+    margin-bottom: 10px; 
+    color: #FF0063; 
+}
+
+.consejo-card p {
+    color: #494949; 
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Estilo para la sección de compra */
+.section-compra {
+    background-color: #FF0063; 
+    border-radius: 0 20px 0 20px;  
+    display: flex;
+    flex-direction: column;
+    gap: 1px; 
+    align-items: center; 
+}
+
+.section-compra h4 {
+    font-size: 20px;
+    color: #EAF6F6;
+}
+
+.section-compra button {
+    font-size: 18px; 
+    border-radius: 5px; 
+    background-color: #66BFBF;
+    cursor: pointer; 
+    padding: 5px 12px; 
+    transition: background-color 0.3s;
+    margin-bottom: 10px;
+}
+
+.section-compra button:hover {
+    background-color: #5DAEAE; 
+}

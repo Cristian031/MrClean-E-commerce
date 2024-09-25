@@ -1,20 +1,19 @@
-import '../styles/Navbar.css';
-import logoImg from '../../public/logoMrClean.jpeg';
+import { Link } from 'react-router-dom';
+import '../css/NavBar.css';
 import CartWidget from './CartWidget';
 
-function Navbar() {
-    return (
-        <nav>
-            <img className="logoMrClean" src={logoImg} alt="logo del negocio mrClean" />
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Liquidos</a></li>
-                <li><a href="#">Plasticos</a></li>
-                <li><a href="#">Para tus mascotas</a></li>
-            </ul>
-            <CartWidget />
-        </nav>
-    );
+function NavBar() {
+  return (
+    <nav className='navBar'>
+      <ul>
+        <li><Link to="/">Home</Link></li> {/* Página principal */}
+        <li><Link to="/category/liquidos">Líquidos</Link></li> {/* Página de líquidos */}
+        <li><Link to="/category/plasticos">Plásticos</Link></li> {/* Página de plásticos */}
+        <li><Link to="/Mascotas" >Mascotas</Link></li>
+      </ul>
+      <CartWidget/>
+    </nav>
+  );
 }
 
-export default Navbar;
+export default NavBar;

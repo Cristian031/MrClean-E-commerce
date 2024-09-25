@@ -1,0 +1,67 @@
+.navBar {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgb(148, 148, 148);
+    color: #ffffff; /* Texto blanco para contraste */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    position: relative; /* Para facilitar el posicionamiento de elementos */
+    margin-top: 10px;
+    border-radius: 8px; /* Bordes redondeados para un aspecto más suave */
+    width: 80%;
+}
+
+/* Estilos para la lista del navbar */
+ul {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1; 
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para los elementos de la lista */
+li {
+    margin: 0 15px;
+    font-size: 18px;
+    position: relative; /* Para facilitar el posicionamiento de pseudo-elementos */
+}
+
+/* Estilos para los enlaces */
+li a {
+    text-decoration: none;
+    color: #ffffff; /* Cambié el color a blanco para mejorar la visibilidad */
+    padding: 10px 15px; /* Espaciado interno para hacer los enlaces más clicables */
+    border-radius: 5px; /* Bordes redondeados para un aspecto más suave */
+    transition: background-color 0.3s, color 0.3s; /* Transiciones suaves */
+}
+
+/* Efecto hover para enlaces */
+li a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo semi-transparente al pasar el mouse */
+    color: #ffffff; /* Mantiene el texto blanco */
+}
+
+/* Estilo para el enlace activo */
+li a.active {
+    background-color: #007BFF; /* Fondo azul para la página activa */
+    color: #ffffff; /* Texto blanco para la página activa */
+}
+
+/*@media (max-width: 768px) {
+    .navBar {
+        flex-direction: column; Cambia a columna en pantallas pequeñas 
+        align-items: flex-start; Alinea los elementos al inicio 
+    }
+
+    ul {
+        flex-direction: column;  Cambia la dirección de la lista a columna 
+        width: 100%; Ocupa el ancho completo 
+    }
+
+    li {
+        margin: 10px 0;  Espaciado vertical entre elementos 
+    }
+}*/
