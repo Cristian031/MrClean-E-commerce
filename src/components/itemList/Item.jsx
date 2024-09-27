@@ -7,7 +7,7 @@ const Item = ({ articulo }) =>{
     <div key={articulo.id} className="item">
       <img src={articulo.image} alt={articulo.name} />
       <h2>{articulo.name}</h2>
-      <Link to = {`/detail/${articulo.id}`}> Ver detalles</Link>
+      <Link to = {`/detail/${articulo.id}`} className="detalle-link">Ver descripción</Link>
       <Button/>
     </div>
   ) 

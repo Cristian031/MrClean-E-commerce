@@ -1,5 +1,6 @@
 import React from 'react';
 import '../css/HomePage.css';
+import { Link } from 'react-router-dom';
 
 function HomePage() {
   return (
@@ -28,10 +29,6 @@ function HomePage() {
               </div>
             </div>
           </div>
-        <section className="section-compra">
-          <h4>¡Realiza tu compra haciendo click! Nunca fue tan fácil</h4>
-          <a href="#"><button type="button"> Comprar</button></a>
-        </section>
       </main>
     </>
   );

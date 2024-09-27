@@ -29,7 +29,7 @@ h1 {
 
 /* Estilo para la sección de consejos */
 .consejos-container {
-    margin: 20px 0;
+    margin-top: 80px;
 }
 .consejos-container h3 {
     background-color: #FF0063; 
@@ -72,31 +72,3 @@ h1 {
     line-height: 1.5;
 }
 
-/* Estilo para la sección de compra */
-.section-compra {
-    background-color: #FF0063; 
-    border-radius: 0 20px 0 20px;  
-    display: flex;
-    flex-direction: column;
-    gap: 1px; 
-    align-items: center; 
-}
-
-.section-compra h4 {
-    font-size: 20px;
-    color: #EAF6F6;
-}
-
-.section-compra button {
-    font-size: 18px; 
-    border-radius: 5px; 
-    background-color: #66BFBF;
-    cursor: pointer; 
-    padding: 5px 12px; 
-    transition: background-color 0.3s;
-    margin-bottom: 10px;
-}
-
-.section-compra button:hover {
-    background-color: #5DAEAE; 
-}
