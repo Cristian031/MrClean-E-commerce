@@ -24,7 +24,7 @@ function App() {
 
         {/* Ruta para mostrar el detalle de un producto específico */}
         <Route path="/detail/:idArticulo" element={<ItemDetailContainer/>}/>
-        <Route path= '*' component={NotFound} />
+        <Route path="*" element={<NotFound/>} />
       </Routes>
       <Footer />
     </BrowserRouter>
