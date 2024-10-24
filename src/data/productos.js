@@ -227,7 +227,7 @@ const articulos = [
 const productos = new Promise((resolve, reject) => {
     setTimeout(() => {
         resolve(articulos);
-    },3000);
+    },2000);
 });
 
 export default productos;

@@ -4,7 +4,7 @@ import '../css/Button.css';
 function Button({ text = "Agregar producto", onClick }) {
   return (
     <div className='button-cart'>
-        <button>{text}</button>
+        <button onClick={onClick}>{text}</button>   
     </div>
   );
 }

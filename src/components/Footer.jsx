@@ -15,7 +15,7 @@ function Footer() {
         <div className="ubicacion">
           <img src={mapIcon} alt="icono de ubicación" className="footer-icon" />
           <p className="contacto-title">Ubicación</p>
-          <p className="contacto-details">Guaymallén, Mendoza capital</p>
+          <p className="contacto-details">Guaymallén, Mendoza</p>
         </div>
         <div className="contacto">
           <img src={contactIcon} alt="icono de contacto" className="footer-icon" />

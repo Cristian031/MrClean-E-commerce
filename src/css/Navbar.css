@@ -3,8 +3,7 @@
     justify-content: space-between; 
     align-items: center;
     padding: 10px 20px;
-    background-color: rgb(148, 148, 148);
-    color: #ffffff; /* Texto blanco para contraste */
+    background-color: rgb(19, 71, 97);
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
     position: relative; /* Para facilitar el posicionamiento de elementos */
     margin-top: 10px;
@@ -44,24 +43,24 @@ li a:hover {
     color: #ffffff; /* Mantiene el texto blanco */
 }
 
-/* Estilo para el enlace activo */
-li a.active {
-    background-color: #007BFF; /* Fondo azul para la página activa */
-    color: #ffffff; /* Texto blanco para la página activa */
+.login-icon {
+    color: #ffffff; /* Color del ícono */
+    width: 24px; /* Ajusta el tamaño según lo necesites */
+    height: 24px;
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    text-decoration: none;
+    display: flex; /* Para centrar el ícono verticalmente */
+    align-items: center; /* Alineación vertical */
+    justify-content: center; /* Centra horizontalmente */
+    background-color: rgba(19, 71, 97); /* Fondo semi-transparente para resaltar */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 5px; /* Espaciado interno para hacer el ícono más clicable */
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
 }
 
-/*@media (max-width: 768px) {
-    .navBar {
-        flex-direction: column; Cambia a columna en pantallas pequeñas 
-        align-items: flex-start; Alinea los elementos al inicio 
-    }
+/* Efecto hover */
+.login-icon:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Cambio de fondo al pasar el mouse */
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el mouse */
+}
 
-    ul {
-        flex-direction: column;  Cambia la dirección de la lista a columna 
-        width: 100%; Ocupa el ancho completo 
-    }
-
-    li {
-        margin: 10px 0;  Espaciado vertical entre elementos 
-    }
-}*/
