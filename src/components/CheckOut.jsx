@@ -9,10 +9,10 @@ const Checkout = () => {
     const { cart, totalPrice, clearCart } = useContext(CartContext);
     const [form, setForm] = useState({
         name: '',
-        email: '',
-        entregaMethod: 'entrega',
+        apellido: '',
+        entregaMethod: '',
         comments: '',
-        paymentMethod: 'transfer'
+        paymentMethod: ''
     });
 
     const handleInputChange = ({ target: { name, value } }) => {
@@ -23,7 +23,7 @@ const Checkout = () => {
         const message = encodeURIComponent(`
             Hola, me gustaría realizar el pedido con los siguientes detalles:
             Nombre: ${form.name}
-            Email: ${form.email}
+            Apellido: ${form.apellido}
             Método de entrega: ${form.entregaMethod}
             Comentarios: ${form.comments}
             Total a pagar: $${totalPrice.toFixed(2)}
@@ -98,19 +98,19 @@ const Checkout = () => {
                         type="text"
                         name="name"
                         id="name"
-                        placeholder="Ingresa tu nombre"
+                        placeholder="Ingrese su nombre"
                         value={form.name}
                         onChange={handleInputChange}
                         required
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="email">Email</label>
+                    <label htmlFor="apellido">apellido</label>
                     <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        placeholder="Ingresa tu correo electrónico"
+                        type="text"
+                        name="apellido"
+                        id="apellido"
+                        placeholder="Ingrese su apellido"
                         value={form.email}
                         onChange={handleInputChange}
                         required
@@ -123,8 +123,9 @@ const Checkout = () => {
                         value={form.entregaMethod}
                         onChange={handleInputChange}
                     >
-                        <option value="entrega">Entrega a domicilio</option>
-                        <option value="pickup">Retiro</option>
+                        <option value="">Seleccione un método</option>
+                        <option value="Domicilio">Entrega a domicilio</option>
+                        <option value="Retiro">Retiro</option>
                     </select>
                 </div>
                 <div className="form-group">

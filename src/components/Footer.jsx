@@ -32,8 +32,8 @@ function Footer() {
       </div>
       <div className="footer-right">
         <div className="icons">
-          <a href="https://api.whatsapp.com" target="_blank" rel="noopener noreferrer">
-            <img src={whatsapp} alt="logo de whatsapp" className="whatsapp-icon" />
+        <a href={`https://wa.me/${import.meta.env.VITE_WHATSAPP_PHONE_NUMBER}?text=${encodeURIComponent("¡Hola! Quiero comprar.")}`} target="_blank"  rel="noopener noreferrer"
+>            <img src={whatsapp} alt="logo de whatsapp" className="whatsapp-icon" />
           </a>
         </div>
       </div>
