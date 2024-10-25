@@ -1,57 +1,57 @@
 .login-form {
-    max-width: 400px; /* Ancho máximo del formulario */
-    margin: 20px auto; /* Centrar el formulario */
-    padding: 20px; /* Espaciado interno */
-    background-color: #ffffff; /* Fondo blanco para el formulario */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    max-width: 400px; 
+    margin: 20px auto; 
+    padding: 20px; 
+    background-color: #ffffff;
+    border-radius: 8px; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
 }
 
 .login-form h2 {
-    margin-bottom: 20px; /* Espacio entre el título y los campos */
-    text-align: center; /* Centrar el texto del título */
-    color: rgb(19, 71, 97); /* Color del título */
+    margin-bottom: 20px; 
+    text-align: center; 
+    color: rgb(19, 71, 97); 
 }
 
 .login-form label {
-    display: block; /* Asegura que las etiquetas estén en líneas separadas */
-    margin-bottom: 5px; /* Espacio entre la etiqueta y el campo */
-    font-weight: bold; /* Negrita para destacar las etiquetas */
-    color: rgb(19, 71, 97); /* Color de las etiquetas */
+    display: block; 
+    margin-bottom: 5px; 
+    font-weight: bold; 
+    color: rgb(19, 71, 97); 
 }
 
 .login-form input {
-    width: 100%; /* Ancho completo del campo */
-    padding: 10px; /* Espaciado interno */
-    margin-bottom: 15px; /* Espacio entre los campos */
-    border: 1px solid #cccccc; /* Borde gris claro */
-    border-radius: 5px; /* Bordes redondeados */
-    font-size: 16px; /* Tamaño de fuente */
+    width: 100%; 
+    padding: 10px; 
+    margin-bottom: 15px; 
+    border: 1px solid #cccccc; 
+    border-radius: 5px; 
+    font-size: 16px;
 }
 
 .login-form input:focus {
-    border-color: rgb(19, 71, 97); /* Color del borde al enfocar el campo */
-    outline: none; /* Eliminar el contorno por defecto */
+    border-color: rgb(19, 71, 97); 
+    outline: none; 
 }
 
 .login-form button {
-    width: 100%; /* Botón ocupa todo el ancho */
-    padding: 10px; /* Espaciado interno */
-    background-color: rgb(19, 71, 97); /* Color de fondo del botón */
-    color: white; /* Color del texto */
-    border: none; /* Sin borde */
-    border-radius: 5px; /* Bordes redondeados */
-    font-size: 16px; /* Tamaño de fuente */
-    cursor: pointer; /* Cambia el cursor al pasar por encima */
-    transition: background-color 0.3s; /* Transición suave para el color */
+    width: 100%; 
+    padding: 10px; 
+    background-color: rgb(19, 71, 97); 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
 }
 
 .login-form button:hover {
-    background-color: rgba(19, 71, 97, 0.8); /* Color al pasar el mouse */
+    background-color: rgba(19, 71, 97, 0.8);
 }
 
 .error-message {
-    color: red; /* Color rojo para mensajes de error */
-    text-align: center; /* Centrar el texto del mensaje */
-    margin-top: 10px; /* Espacio superior */
+    color: red; 
+    text-align: center; 
+    margin-top: 10px;
 }

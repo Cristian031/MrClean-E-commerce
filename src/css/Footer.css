@@ -37,7 +37,7 @@
 .footer-center .contacto,
 .footer-center .correo {
     display: flex;
-    flex-direction: column; /* Columna para cada ítem */
+    flex-direction: column;
     align-items: center; 
     justify-content: center; 
 }

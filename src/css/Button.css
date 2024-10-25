@@ -1,24 +1,24 @@
 .button-cart {
-  font-size:medium;
+  font-size:15px;
   background-color: rgb(84, 130, 200);
   border-radius: 5px;
-  padding: 5px 10px; /* Espaciado más cómodo */
+  padding: 1px 3px;
   color: white;
   border: unset;
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Transición suave */
+  transition: background-color 0.3s ease; 
   margin-bottom: 20px;
 }
 
 .button-cart:hover {
-  background-color: #218838; /* Un tono más oscuro para el hover */
+  background-color: #218838; 
 }
 
 .button-cart button {
-  background: transparent; /* Hace que el botón tome el fondo del div */
-  border: none; /* Eliminar borde del botón */
-  color: inherit; /* Hereda el color del contenedor */
-  font-size: inherit; /* Hereda el tamaño de fuente del contenedor */
-  cursor: pointer; /* Asegura que el cursor sea un puntero */
-  outline: none; /* Elimina el contorno predeterminado */
+  background: transparent; 
+  border: none; 
+  color: inherit; 
+  font-size: inherit; 
+  cursor: pointer; 
+  outline: none; 
 }

@@ -31,7 +31,7 @@ function CartWidget() {
     return (
         <div>
             <div className="cart-container" onClick={toggleModal}>
-                <img src="./cart.png" alt="icono de carrito de compra" />
+                <img src= "/cart.png" alt="icono de carrito de compra" />
                 <span>{totalItems}</span>
             </div>
 

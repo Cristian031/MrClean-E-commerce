@@ -74,20 +74,20 @@
 .item-detail img {
     width: 200px;
     height: auto;
-    border: 2px solid #24435e; /* Borde más definido */
+    border: 2px solid #24435e; 
     border-radius: 10px;
     transition: transform 0.3s ease;
 }
 
 .item-detail img:hover {
-    transform: scale(1.05); /* Efecto hover para aumentar ligeramente la imagen */
+    transform: scale(1.05); 
 }
 
 .detalle-link {
     font-size: 14px;
     background-color: #5482c8;
     border-radius: 5px;
-    padding: 8px 15px; /* Espaciado más cómodo */
+    padding: 5px 10px; 
     color: white;
     border: none;
     cursor: pointer;
@@ -98,8 +98,8 @@
 }
 
 .detalle-link:hover {
-    background-color: #218838; /* Un tono más oscuro para el hover */
-    transform: scale(1.05); /* Efecto de agrandamiento en hover */
+    background-color: #218838; 
+    transform: scale(1.05);
 }
 
 /* Botones de cantidad */
@@ -115,13 +115,13 @@
 }
 
 .boton-cantidad:disabled {
-    background-color: #ccc; /* Color más claro cuando el botón está deshabilitado */
+    background-color: #ccc; 
     cursor: not-allowed;
 }
 
 .boton-cantidad:hover:not(:disabled) {
-    background-color: #216788; /* Cambia de color cuando el botón no está deshabilitado */
-    transform: scale(1.05); /* Pequeño efecto de aumento en hover */
+    background-color: #216788; 
+    transform: scale(1.05); 
 }
 
 /* Texto de cantidad */

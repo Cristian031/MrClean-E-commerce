@@ -1,7 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { CartContext } from './context/CartContext';
 import Swal from 'sweetalert2';
-import '../css/Carrito.css';
+import { doc, setDoc } from 'firebase/firestore';
+import {db} from '../firebase/firebaseService.js'; 
+import '../css/Checkout.css';
 
 const Checkout = () => {
     const { cart, totalPrice, clearCart } = useContext(CartContext);
@@ -25,7 +27,6 @@ const Checkout = () => {
             Método de entrega: ${form.entregaMethod}
             Comentarios: ${form.comments}
             Total a pagar: $${totalPrice.toFixed(2)}
-            Alias para transferencia: ${import.meta.env.VITE_ALIAS}
             Muchas gracias!
         `.trim());
         return `https://wa.me/${import.meta.env.VITE_WHATSAPP_PHONE_NUMBER}?text=${message}`;
@@ -34,16 +35,24 @@ const Checkout = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const newOrderId = Math.floor(Math.random() * 1000000);
+        const orderDetails = {
+            ...form,
+            items: cart,
+            total: totalPrice.toFixed(2),
+            createdAt: new Date().toISOString()
+        };
+
+        // Guardar pedido en Firestore
+        await setDoc(doc(db, "orders", `${Date.now()}`), orderDetails);
+
         clearCart();
 
         const whatsappUrl = generateWhatsAppMessage();
 
         await Swal.fire({
             title: 'Pedido realizado con éxito',
-            text: `Tu número de pedido es: ${newOrderId}`,
+            text: `Tu pedido ha sido registrado.`,
             icon: 'success',
-            confirmButtonText: 'Aceptar',
             footer: `
                 <p>Gracias por tu compra!</p>
                 <p>Haz clic en el siguiente botón para enviar los detalles del pedido por WhatsApp:</p>
@@ -66,6 +75,7 @@ const Checkout = () => {
             <h2>Carrito de compras</h2>
             <div className="checkout-details">
                 <h3>Detalle de tu compra</h3>
+                <ul className='cart-ul'>
                     {cart.map(({ id, image, name, cantidad, price }) => (
                         <li key={id} className="cart-item">
                             <img src={image} alt={name} className="cart-item-image" />
@@ -76,24 +86,36 @@ const Checkout = () => {
                             </div>
                         </li>
                     ))}
+                </ul>
                 <h3>Total: ${totalPrice.toFixed(2)}</h3>
             </div>
 
             <form className="checkout-form" onSubmit={handleSubmit}>
                 <h3>Datos del pedido</h3>
-                {['Nombre', 'Email'].map(field => (
-                    <div className="form-group" key={field}>
-                        <label htmlFor={field}>{field.charAt(0).toUpperCase() + field.slice(1)}</label>
-                        <input
-                            type={field === 'email' ? 'email' : 'text'}
-                            name={field}
-                            id={field}
-                            value={form[field]}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </div>
-                ))}
+                <div className="form-group">
+                    <label htmlFor="name">Nombre</label>
+                    <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        placeholder="Ingresa tu nombre"
+                        value={form.name}
+                        onChange={handleInputChange}
+                        required
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="email">Email</label>
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="Ingresa tu correo electrónico"
+                        value={form.email}
+                        onChange={handleInputChange}
+                        required
+                    />
+                </div>
                 <div className="form-group">
                     <label>Entrega</label>
                     <select
@@ -116,9 +138,16 @@ const Checkout = () => {
                 </div>
                 <div className="form-group">
                     <label>Método de pago</label>
-                    <p>ALIAS: {import.meta.env.VITE_ALIAS}</p>
+                    <select
+                        name="paymentMethod"
+                        value={form.paymentMethod}
+                        onChange={handleInputChange}
+                    >
+                        <option value="transfer">Transferencia</option>
+                        <option value="efectivo">Efectivo</option>
+                    </select>
                 </div>
-                <button className='realizar-compra' type="submit">Realizar Compra</button>
+                <button type="submit">Realizar pedido</button>
             </form>
         </div>
     );

@@ -21,5 +21,9 @@ export const AuthProvider = ({ children }) => {
     return unsubscribe;
   }, []);
 
-  return <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>; // Proporcionar un objeto
+  return(
+    <AuthContext.Provider value={{ user }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };

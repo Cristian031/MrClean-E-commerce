@@ -20,10 +20,9 @@ const Login = () => {
       // Iniciar sesión con Firebase
       await signInWithEmailAndPassword(auth, dataForm.email, dataForm.password);
       
-      // Redirigir a la ruta deseada
-      navigate("/admin/add-product"); // Cambiar a la ruta correcta
+      // Redirigir a la ruta
+      navigate("/admin/add-product"); 
     } catch (error) {
-      // Manejar errores (ejemplo: credenciales incorrectas)
       setError("Error al iniciar sesión: " + error.message);
       console.error("Error al iniciar sesión:", error);
     }

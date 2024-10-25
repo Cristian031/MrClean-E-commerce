@@ -1,10 +1,10 @@
 .checkout-container {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Dos columnas */
+    grid-template-columns: 1fr 1fr; 
     gap: 50px;
     width: 100%;
     max-width: 1;
-    margin: 0 auto; /* Centrar el contenedor */
+    margin: 0 auto;
     padding: 20px;
     background-color: #f8f9fa;
     border-radius: 10px;
@@ -15,24 +15,29 @@
 .checkout-container h3 {
     color: #343a40;
     margin-bottom: 20px;
-    grid-column: span 2; /* Hacer que el título ocupe ambas columnas */
-    text-align: center; /* Centrar el texto del título */
+    grid-column: span 2; 
+    text-align: center; 
 }
 
 .checkout-details {
-    display: grid; /* Habilita grid en el contenedor */
+    display: grid; 
     gap: 20px; 
     align-items: center; 
     padding: 15px;
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
-    grid-column: 1; /* Alinear detalles de compra a la primera columna */
+    grid-column: 1; 
+}
+.cart-ul{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 .checkout-details li {
-    display: grid; /* Habilita grid en el contenedor */
-    grid-template-columns: 100px 1fr 1fr 1fr; /* Define 4 columnas */
+    display: grid; 
+    grid-template-columns: 100px 1fr 1fr 1fr; 
 }
 
 .cart-item-image {
@@ -41,7 +46,7 @@
 }
 
 .cart-item-info {
-    display: contents; /* Mantiene la estructura del grid sin contenedores adicionales */
+    display: contents; 
 }
 
 .cart-item-info span {
@@ -54,7 +59,8 @@
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
-    grid-column: 2; /* Alinear el formulario a la segunda columna */
+    grid-column: 2; 
+    height: 80vh;
 }
 
 .form-group {

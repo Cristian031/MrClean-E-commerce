@@ -1,6 +1,5 @@
 import React from 'react';
 import Item from './Item';
-import '../../data/productos.js';
 
 const ItemList = ({ articulos }) => {
   return (

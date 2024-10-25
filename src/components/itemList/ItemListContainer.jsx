@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom"; // Importa useNavigate
-import productos from '../../data/productos.js';
+import { useParams, useNavigate } from "react-router-dom"; 
+import { db } from '../../firebase/firebaseService.js'; 
+import { collection, getDocs } from 'firebase/firestore';
 import ItemList from '../itemList/ItemList.jsx';
 import { PropagateLoader } from 'react-spinners';
 
@@ -14,7 +15,7 @@ function ItemListContainer() {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '100vh', // O ajusta la altura según necesites
+    height: '100vh',
   };
 
   // Lista de categorías válidas
@@ -27,25 +28,35 @@ function ItemListContainer() {
     // Validar si la categoría es válida
     if (idCategory && !categoriasValidas.includes(idCategory)) {
       navigate("/not-found"); // Redirige a la página NotFound si la categoría no es válida
-      setLoading(false); // Finaliza la carga aquí para no dejarlo en estado de carga
+      setLoading(false);
       return;
     }
 
-    productos
-      .then((respuesta) => {
+    const fetchData = async () => {
+      try {
+        const productosRef = collection(db, 'products'); 
+        const querySnapshot = await getDocs(productosRef);
+        const productosArray = [];
+
+        querySnapshot.forEach((doc) => {
+          productosArray.push({ id: doc.id, ...doc.data() }); // Agrega el ID del documento y los datos al array
+        });
+
+        // Filtra los productos por categoría
         if (idCategory) {
-          const newArticulo = respuesta.filter(articulo => articulo.category.id === idCategory);
+          const newArticulo = productosArray.filter(articulo => articulo.category.id === idCategory);
           setArticulos(newArticulo);
         } else {
-          setArticulos(respuesta);
+          setArticulos(productosArray);
         }
-      })
-      .catch(error => {
-        console.error(error); 
-      })
-      .finally(() => {
+      } catch (error) {
+        console.error("Error al obtener los productos:", error);
+      } finally {
         setLoading(false); 
-      });
+      }
+    };
+
+    fetchData(); // Llama a la función para obtener los datos
 
   }, [idCategory, navigate]);
 
@@ -56,6 +67,11 @@ function ItemListContainer() {
       </div>
     );
   }
+
+  if (!articulos.length) {
+    return <div>No hay productos disponibles para esta categoría.</div>;
+  }
+
   return (
     <div className="itemListContainer">
       <ItemList articulos={articulos} />  
