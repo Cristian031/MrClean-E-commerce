@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { CartContext } from './context/CartContext';
 import Swal from 'sweetalert2';
 import { doc, setDoc } from 'firebase/firestore';
-import {db} from '../firebase/firebaseService.js'; 
+import { db } from '../firebase/firebaseService.js'; 
 import '../css/Checkout.css';
 
 const Checkout = () => {
@@ -19,16 +19,38 @@ const Checkout = () => {
         setForm(prevForm => ({ ...prevForm, [name]: value }));
     };
 
+    // Función para formatear la primera letra en mayúscula
+    const capitalizeFirstLetter = (string) => {
+        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+    };
+
+    // Genera los detalles del pedido en formato de texto
+    const generateOrderDetails = () => {
+        return cart.map(({ name, cantidad, price }) =>
+            `Producto: ${name}, Cantidad: ${cantidad}, Precio: $${price}`
+        ).join('\n');
+    };
+
     const generateWhatsAppMessage = () => {
+        const orderDetails = generateOrderDetails();
+        
+        // Formateamos el método de entrega y el método de pago
+        const entregaMethodFormatted = form.entregaMethod ? capitalizeFirstLetter(form.entregaMethod) : "No especificado";
+        const paymentMethodFormatted = form.paymentMethod ? capitalizeFirstLetter(form.paymentMethod) : "No especificado";
+
         const message = encodeURIComponent(`
             Hola, me gustaría realizar el pedido con los siguientes detalles:
-            Nombre: ${form.name}
-            Apellido: ${form.apellido}
-            Método de entrega: ${form.entregaMethod}
+            Nombre comprador: ${form.name}
+            Apellido comprador: ${form.apellido}
+            Método de entrega: ${entregaMethodFormatted}
+            Método de pago: ${paymentMethodFormatted}
             Comentarios: ${form.comments}
+            Detalle del pedido:
+            ${orderDetails}
             Total a pagar: $${totalPrice.toFixed(2)}
             Muchas gracias!
         `.trim());
+
         return `https://wa.me/${import.meta.env.VITE_WHATSAPP_PHONE_NUMBER}?text=${message}`;
     };
 
@@ -37,6 +59,8 @@ const Checkout = () => {
 
         const orderDetails = {
             ...form,
+            entregaMethod: capitalizeFirstLetter(form.entregaMethod) || "No especificado",
+            paymentMethod: capitalizeFirstLetter(form.paymentMethod) || "No especificado",
             items: cart,
             total: totalPrice.toFixed(2),
             createdAt: new Date().toISOString()
@@ -105,13 +129,13 @@ const Checkout = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="apellido">apellido</label>
+                    <label htmlFor="apellido">Apellido</label>
                     <input
                         type="text"
                         name="apellido"
                         id="apellido"
                         placeholder="Ingrese su apellido"
-                        value={form.email}
+                        value={form.apellido}
                         onChange={handleInputChange}
                         required
                     />
@@ -144,7 +168,8 @@ const Checkout = () => {
                         value={form.paymentMethod}
                         onChange={handleInputChange}
                     >
-                        <option value="transfer">Transferencia</option>
+                        <option value="">Seleccione un método</option>
+                        <option value="transferencia">Transferencia</option>
                         <option value="efectivo">Efectivo</option>
                     </select>
                 </div>

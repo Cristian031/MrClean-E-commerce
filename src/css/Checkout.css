@@ -12,12 +12,13 @@
 }
 
 .checkout-container h2,
-.checkout-container h3 {
+.checkout-container h3, p{
     color: #343a40;
     margin-bottom: 20px;
     grid-column: span 2; 
     text-align: center; 
 }
+
 
 .checkout-details {
     display: grid; 
