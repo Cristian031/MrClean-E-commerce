@@ -3,14 +3,13 @@ import { getFirestore } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { getStorage } from 'firebase/storage';
 
-
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_APIKEY,
-  authDomain: "mrclean-ecommerce-9b3f3.firebaseapp.com",
-  projectId: "mrclean-ecommerce-9b3f3",
-  storageBucket: "mrclean-ecommerce-9b3f3.appspot.com",
-  messagingSenderId: "992143996519",
-  appId: "1:992143996519:web:68a1bd1e8dfd7938ef86c2"
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID,
 };
 
 // Inicializa Firebase
@@ -19,6 +18,5 @@ initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore();
 const storage = getStorage();
-
 
 export { auth, db, storage };
