@@ -5,7 +5,7 @@ import { getStorage } from 'firebase/storage';
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAqhssBEdcuBC0f1HgwFsb6T9N_OPC6txw",
+  apiKey: import.meta.env.VITE_APIKEY,
   authDomain: "mrclean-ecommerce-9b3f3.firebaseapp.com",
   projectId: "mrclean-ecommerce-9b3f3",
   storageBucket: "mrclean-ecommerce-9b3f3.appspot.com",
